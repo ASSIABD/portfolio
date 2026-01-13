@@ -11,7 +11,7 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
   const [index, setIndex] = useState(1);
-  const toRotate = [ "Web Developer", "Web Designer", "Team Leader" ];
+  const toRotate = [ "Big Data & AI Engineering Student" ];
   const period = 2000;
 
   useEffect(() => {
@@ -55,12 +55,9 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Welcome to my Portfolio</span>
-                <h1>{`Hi! I'm Odina`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "Team Leder" ]'><span className="wrap">{text}</span></span></h1>
-                <p>My fullname is Saidnazarova Odinanabonu. I'm 15 years old. I study 249-school in 10th grade.I am a front-end web developer. I can make the website more, more interactive with web animation
-           I study at Web Brain Academy group G5. When I first came to web brain, I had no knowledge of programming.
-           But now with the help of strong aspirations and teachers, my level of knowledge has greatly increased and I can freely create web site views that are used in our daily lives
-        </p>
+                <span className="tagline">Profile</span>
+                <h1>{`Hi! I'm Assia Bendaou`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Big Data & AI Engineering Student" ]'><span className="wrap">{text}</span></span></h1>
+                <p>Engineering student specializing in Big Data, Data Science, and AI. Interested in Machine Learning, Data Analysis, Computer Vision, and AI for Social Good. Currently seeking a summer internship or collaborative opportunities.</p>
                   <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>

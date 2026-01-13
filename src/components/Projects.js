@@ -3,9 +3,6 @@ import { ProjectCard } from "./ProjectCard";
 import projImg1 from "../assets/img/forth project.jpg";
 import projImg2 from "../assets/img/second work.jpg";
 import projImg3 from "../assets/img/project1.jpg";
-import projImg4 from "../assets/img/first work.jpg";
-import projImg5 from "../assets/img/fifth work.jpg";
-import projImg6 from "../assets/img/12345.jpg";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -14,29 +11,19 @@ export const Projects = () => {
 
   const projects = [
     {
-      
-      description: "Design & Development",
+      title: "Public Transport Optimization",
+      description: "Passenger count prediction using LightGBM on 57,000+ observations.",
       imgUrl: projImg1,
     },
     {
-      description: "Design & Development",
+      title: "Speak Your Hands",
+      description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker.",
       imgUrl: projImg2,
     },
     {
-      description: "Design & Development",
+      title: "Recipe Web Platform",
+      description: "Web platform with secure JWT authentication and responsive UI.",
       imgUrl: projImg3,
-    },
-    {
-      description: "Design & Development",
-      imgUrl: projImg4,
-    },
-    {
-      description: "Design & Development",
-      imgUrl: projImg5,
-    },
-    {
-      description: "Design & Development",
-      imgUrl: projImg6,
     },
   ];
 
@@ -49,7 +36,7 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>I show you to all the big and small websites I have done so far</p>
+                <p>I show you my most recent engineering and AI projects.</p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>
