@@ -55,10 +55,8 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                <span className="tagline">Profile</span>
                 <h1>{`Hi! I'm Assia Bendaou`} <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Big Data & AI Engineering Student" ]'><span className="wrap">{text}</span></span></h1>
                 <p>Engineering student specializing in Big Data, Data Science, and AI. Interested in Machine Learning, Data Analysis, Computer Vision, and AI for Social Good. Currently seeking a summer internship or collaborative opportunities.</p>
-                  <button onClick={() => console.log('connect')}>Let’s Connect <ArrowRightCircle size={25} /></button>
               </div>}
             </TrackVisibility>
           </Col>
