@@ -28,31 +28,45 @@ export const Skills = () => {
     }
   };
 
+  const skills = [
+    {
+      category: "AI & ML",
+      items: ["Machine Learning", "Deep Learning", "CNN", "Computer Vision"]
+    },
+    {
+      category: "Data & Big Data",
+      items: ["Hadoop", "MapReduce", "Power BI", "SQL", "MongoDB"]
+    },
+    {
+      category: "Languages",
+      items: ["Python (pandas/scikit-learn)", "Java", "C", "SQL", "JavaScript", "PHP"]
+    },
+    {
+      category: "Tools",
+      items: ["Git", "Docker", "Jupyter", "VS Code", "Laravel"]
+    }
+  ];
+
   return (
     <section className="skill" id="skills">
         <div className="container">
             <div className="row">
                 <div className="col-12">
                     <div className="skill-bx wow zoomIn">
-                        <h2>About Skills</h2>
-                        <p>I have learned different programming languages ​​so far and as far as my skills are concerned<br></br></p>
+                        <h2>Technical Skills</h2>
+                        <p>My technical stack organized by category<br></br></p>
                         <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter2} alt="Image" />
-                                <h5>English</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter3} alt="Image" />
-                                <h5>Logo Design</h5>
-                            </div>
-                            <div className="item">
-                                <img src={meter1} alt="Image" />
-                                <h5>Web Development</h5>
-                            </div>
+                            {skills.map((skillGroup, index) => (
+                                <div className="item" key={index}>
+                                    <img src={index % 3 === 0 ? meter1 : index % 3 === 1 ? meter2 : meter3} alt="Skill Meter" />
+                                    <h5>{skillGroup.category}</h5>
+                                    <div className="skill-list">
+                                        {skillGroup.items.map((item, itemIndex) => (
+                                            <span key={itemIndex} className="skill-item">{item}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            ))}
                         </Carousel>
                     </div>
                 </div>
