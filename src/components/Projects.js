@@ -18,12 +18,12 @@ export const Projects = () => {
     {
       title: "Speak Your Hands",
       description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker.",
-      imgUrl: projImg2,
+      imgUrl: projImg3,
     },
     {
       title: "Recipe Web Platform",
       description: "Web platform with secure JWT authentication and responsive UI.",
-      imgUrl: projImg3,
+      imgUrl: projImg2,
     },
   ];
 
