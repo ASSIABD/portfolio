@@ -602,6 +602,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner img {
   max-width: 100%;
   height: auto;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.6),
+              0 0 60px rgba(118, 75, 162, 0.4),
+              0 0 90px rgba(102, 126, 234, 0.2),
+              inset 0 0 20px rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.banner img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 40px rgba(102, 126, 234, 0.8),
+              0 0 80px rgba(118, 75, 162, 0.6),
+              0 0 120px rgba(102, 126, 234, 0.3),
+              inset 0 0 25px rgba(102, 126, 234, 0.2);
 }
 @keyframes updown {
     0% {

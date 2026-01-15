@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
-import projImg1 from "../assets/img/forth project.jpg";
-import projImg2 from "../assets/img/second work.jpg";
-import projImg3 from "../assets/img/project1.jpg";
+import projImg1 from "../assets/img/project1.jpg";
+import projImg2 from "../assets/img/project2.png";
+import projImg3 from "../assets/img/project3.jpg";
 import certImg1 from "../assets/img/coursera.png";
-import certImg2 from "../assets/img/me.png";
+import certImg2 from "../assets/img/me2.png";
 import certImg3 from "../assets/img/oracle1.png";
 import certImg4 from "../assets/img/oracle2.png";
 import 'animate.css';
@@ -15,24 +15,24 @@ export const PortfolioShowcase = () => {
 
   const projects = [
     {
-      title: "Public Transport Optimization",
-      description: "Passenger count prediction using LightGBM on 57,000+ observations with advanced feature engineering.",
+      title: "Speak Your Hands",
+      description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker containerization.",
       imgUrl: projImg1,
-      liveDemoUrl: "https://example.com/demo1",
+      githubUrl: "https://github.com/AssiaBendaou/Speak-Your-Hands",
       detailsUrl: "https://example.com/details1"
     },
     {
-      title: "Speak Your Hands",
-      description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker containerization.",
-      imgUrl: projImg2,
-      liveDemoUrl: "https://example.com/demo2",
+      title: "Public Transport Optimization",
+      description: "Passenger count prediction using LightGBM on 57,000+ observations with advanced feature engineering.",
+      imgUrl: projImg3,
+      githubUrl: "https://github.com/AssiaBendaou/Transport-Optimization",
       detailsUrl: "https://example.com/details2"
     },
     {
       title: "Recipe Web Platform",
       description: "Full-stack web platform with secure JWT authentication and responsive UI design.",
-      imgUrl: projImg3,
-      liveDemoUrl: "https://example.com/demo3",
+      imgUrl: projImg2,
+      githubUrl: "https://github.com/AssiaBendaou/Recipe-Platform",
       detailsUrl: "https://example.com/details3"
     },
   ];
@@ -120,15 +120,15 @@ export const PortfolioShowcase = () => {
                             <h3>{project.title}</h3>
                             <p>{project.description}</p>
                             <div className="card-actions">
-                              <a href={project.liveDemoUrl} className="btn-demo" target="_blank" rel="noopener noreferrer">
-                                Live Demo
+                              <a href={project.githubUrl} className="btn-demo" target="_blank" rel="noopener noreferrer">
+                                GitHub
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                                   <polyline points="15,3 21,3 21,9"></polyline>
                                   <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
                               </a>
-                              <button className="btn-details">Details</button>
+                              <a href={project.detailsUrl} className="btn-details">Details</a>
                             </div>
                           </div>
                         </div>
