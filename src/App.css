@@ -981,3 +981,174 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #fff;
   font-weight: 600;
 }
+
+/* Technical Mission Briefing Modal */
+.mission-briefing-modal .modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 2px solid rgba(147, 51, 234, 0.3);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-briefing-modal .modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(147, 51, 234, 0.1) 50%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.mission-briefing-modal .modal-content::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid rgba(147, 51, 234, 0.2);
+  border-radius: 20px;
+  pointer-events: none;
+  animation: scanline 3s linear infinite;
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+.mission-header {
+  background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+  border: none;
+  border-radius: 20px 20px 0 0;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-header .modal-title {
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mission-body {
+  padding: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.mission-content {
+  color: #fff;
+}
+
+.mission-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.mission-description strong {
+  color: #9333ea;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.5);
+}
+
+.technical-analytics {
+  margin-top: 30px;
+}
+
+.technical-analytics h4 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.analytics-placeholder {
+  background: rgba(147, 51, 234, 0.1);
+  border: 2px dashed rgba(147, 51, 234, 0.6);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  color: #9333ea;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+  animation: neon-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+  0% { box-shadow: 0 0 5px rgba(147, 51, 234, 0.5); }
+  100% { box-shadow: 0 0 20px rgba(147, 51, 234, 0.8), 0 0 30px rgba(147, 51, 234, 0.4); }
+}
+
+.mission-footer {
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(147, 51, 234, 0.2);
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+}
+
+.mission-footer .btn {
+  margin: 0 10px;
+  padding: 12px 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.mission-footer .btn-primary {
+  background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+  border: none;
+  color: #fff;
+}
+
+.mission-footer .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(147, 51, 234, 0.4);
+}
+
+.mission-footer .btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  color: #fff;
+}
+
+.mission-footer .btn-secondary:hover {
+  background: rgba(147, 51, 234, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Close button styling */
+.mission-header .btn-close {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(147, 51, 234, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.mission-header .btn-close:hover {
+  background: rgba(147, 51, 234, 0.2);
+  opacity: 1;
+  transform: rotate(90deg);
+}
