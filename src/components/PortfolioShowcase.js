@@ -3,6 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import projImg1 from "../assets/img/project1.jpg";
 import projImg2 from "../assets/img/project2.png";
 import projImg3 from "../assets/img/project3.jpg";
+import bg1 from "../assets/img/banner-bg.png";
 import certImg1 from "../assets/img/coursera.png";
 import certImg2 from "../assets/img/me2.png";
 import certImg3 from "../assets/img/oracle1.png";
@@ -12,6 +13,7 @@ import TrackVisibility from 'react-on-screen';
 
 export const PortfolioShowcase = () => {
   const [activeTab, setActiveTab] = useState('projects');
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
     {
@@ -19,21 +21,36 @@ export const PortfolioShowcase = () => {
       description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker containerization.",
       imgUrl: projImg1,
       githubUrl: "https://github.com/AssiaBendaou/Speak-Your-Hands",
-      detailsUrl: "https://example.com/details1"
+      content: {
+        date: "March 2024",
+        tech: ["Python", "JavaFX", "Docker", "TensorFlow"],
+        dataset: "Real-time gesture recognition (A-Z) using Convolutional Neural Networks with MobileNetV2 architecture.",
+        impact: "Advanced computer vision solution enabling real-time sign language translation, demonstrating expertise in deep learning, Docker containerization, and desktop application development."
+      }
     },
     {
       title: "Public Transport Optimization",
       description: "Passenger count prediction using LightGBM on 57,000+ observations with advanced feature engineering.",
       imgUrl: projImg3,
       githubUrl: "https://github.com/AssiaBendaou/Transport-Optimization",
-      detailsUrl: "https://example.com/details2"
+      content: {
+        date: "October 2025",
+        tech: ["Python", "Random Forest", "XGBoost", "LightGBM"],
+        dataset: "Passenger demand prediction using 57,916 observations with Exploratory Data Analysis and advanced feature engineering techniques.",
+        impact: "Sophisticated machine learning solution for urban transportation optimization, demonstrating advanced data science skills and real-world problem-solving capabilities."
+      }
     },
     {
       title: "Recipe Web Platform",
       description: "Full-stack web platform with secure JWT authentication and responsive UI design.",
       imgUrl: projImg2,
       githubUrl: "https://github.com/AssiaBendaou/Recipe-Platform",
-      detailsUrl: "https://example.com/details3"
+      content: {
+        date: "May 2024",
+        tech: ["Laravel", "PHP", "MySQL", "JWT"],
+        dataset: "Full-stack web application with secure JSON Web Token authentication system and RESTful API architecture.",
+        impact: "Comprehensive web development project showcasing backend expertise, secure authentication protocols, and modern full-stack development practices."
+      }
     },
   ];
 
@@ -128,7 +145,7 @@ export const PortfolioShowcase = () => {
                                   <line x1="10" y1="14" x2="21" y2="3"></line>
                                 </svg>
                               </a>
-                              <a href={project.detailsUrl} className="btn-details">Details</a>
+                              <button onClick={() => setSelectedProject(project)} className="btn-details">Details</button>
                             </div>
                           </div>
                         </div>
@@ -190,6 +207,220 @@ export const PortfolioShowcase = () => {
       {/* Background Glow Effects */}
       <div className="glow-blob glow-1"></div>
       <div className="glow-blob glow-2"></div>
+      
+      {/* Mission Report Modal */}
+      {selectedProject && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(10, 10, 30, 0.9)',
+            backdropFilter: 'blur(20px)',
+            backgroundImage: `url(${bg1})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            zIndex: 9999,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onClick={() => setSelectedProject(null)}
+        >
+          <div 
+            style={{
+              background: 'rgba(15, 15, 30, 0.7)',
+              backdropFilter: 'blur(15px)',
+              border: '1px solid rgba(255, 255, 255, 0.1)',
+              borderRadius: '40px',
+              padding: '50px',
+              maxWidth: '1100px',
+              width: '90%',
+              boxShadow: '0 0 30px rgba(63, 81, 181, 0.2)',
+              cursor: 'default',
+              position: 'relative',
+              margin: '0 auto'
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div style={{ paddingTop: '120px' }}>
+              {/* Two Column Layout */}
+              <div style={{ display: 'flex', gap: '50px', alignItems: 'flex-start' }}>
+                {/* Left Column - Project Image */}
+                <div style={{ flex: '0 0 40%' }}>
+                  <div style={{
+                    position: 'relative',
+                    borderRadius: '15px',
+                    overflow: 'hidden',
+                    boxShadow: '0 0 20px rgba(63, 81, 181, 0.2)',
+                    border: '2px solid rgba(63, 81, 181, 0.3)'
+                  }}>
+                    <img 
+                      src={selectedProject.imgUrl} 
+                      alt={selectedProject.title}
+                      style={{
+                        width: '100%',
+                        height: '200px',
+                        objectFit: 'cover',
+                        display: 'block'
+                      }}
+                    />
+                  </div>
+                </div>
+                
+                {/* Right Column - Mission Log */}
+                <div style={{ flex: '1', color: '#fff' }}>
+                  <h2 style={{ 
+                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
+                    color: '#ececec', 
+                    fontSize: '2.6rem', 
+                    fontWeight: '700',
+                    marginBottom: '20px',
+                    lineHeight: '1.2',
+                    letterSpacing: '0.5px'
+                  }}>
+                    {selectedProject.title}
+                  </h2>
+                  <p style={{ 
+                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
+                    color: '#b0b0b0', 
+                    fontSize: '1rem', 
+                    marginBottom: '35px',
+                    fontStyle: 'italic'
+                  }}>
+                    {selectedProject.content.date}
+                  </p>
+                  
+                  <div style={{ marginBottom: '30px' }}>
+                    <h3 style={{ 
+                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
+                      color: '#b0b0b0', 
+                      fontSize: '1rem', 
+                      fontWeight: 'bold',
+                      marginBottom: '15px',
+                      letterSpacing: '1.5px',
+                      textTransform: 'uppercase',
+                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
+                    }}>
+                      TECH STACK
+                    </h3>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '30px' }}>
+                      {selectedProject.content.tech.map((tech, index) => (
+                        <span 
+                          key={index} 
+                          style={{
+                            background: 'rgba(63, 81, 181, 0.1)',
+                            border: '1px solid rgba(63, 81, 181, 0.3)',
+                            color: '#ececec',
+                            padding: '6px 14px',
+                            borderRadius: '8px',
+                            fontSize: '0.85rem',
+                            fontWeight: '500',
+                            transition: 'all 0.3s ease',
+                            cursor: 'pointer',
+                            display: 'inline-block'
+                          }}
+                          onMouseOver={(e) => {
+                            e.target.style.background = 'rgba(63, 81, 181, 0.2)';
+                            e.target.style.borderColor = 'rgba(63, 81, 181, 0.5)';
+                          }}
+                          onMouseOut={(e) => {
+                            e.target.style.background = 'rgba(63, 81, 181, 0.1)';
+                            e.target.style.borderColor = 'rgba(63, 81, 181, 0.3)';
+                          }}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <div style={{ marginBottom: '30px' }}>
+                    <h3 style={{ 
+                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
+                      color: '#b0b0b0', 
+                      fontSize: '1rem', 
+                      fontWeight: 'bold',
+                      marginBottom: '15px',
+                      letterSpacing: '1.5px',
+                      textTransform: 'uppercase',
+                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
+                    }}>
+                      DATASET
+                    </h3>
+                    <p style={{ 
+                      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                      color: '#d1d1d1', 
+                      fontSize: '1rem', 
+                      lineHeight: '1.6'
+                    }}>
+                      {selectedProject.content.dataset}
+                    </p>
+                  </div>
+                  
+                  <div style={{ marginBottom: '40px' }}>
+                    <h3 style={{ 
+                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
+                      color: '#b0b0b0', 
+                      fontSize: '1rem', 
+                      fontWeight: 'bold',
+                      marginBottom: '15px',
+                      letterSpacing: '1.5px',
+                      textTransform: 'uppercase',
+                      fontStyle: 'italic',
+                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
+                    }}>
+                      IMPACT
+                    </h3>
+                    <p style={{ 
+                      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+                      color: '#d1d1d1', 
+                      fontSize: '1rem', 
+                      lineHeight: '1.6'
+                    }}>
+                      {selectedProject.content.impact}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              
+              <div style={{ textAlign: 'center', marginTop: '50px' }}>
+                <button 
+                  onClick={() => setSelectedProject(null)}
+                  style={{
+                    background: 'transparent',
+                    border: '1px solid rgba(63, 81, 181, 0.4)',
+                    color: '#b0b0b0',
+                    padding: '12px 30px',
+                    borderRadius: '50px',
+                    fontSize: '0.9rem',
+                    fontWeight: '600',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease',
+                    letterSpacing: '1px',
+                    textTransform: 'uppercase',
+                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif'
+                  }}
+                  onMouseOver={(e) => {
+                    e.target.style.borderColor = 'rgba(63, 81, 181, 0.8)';
+                    e.target.style.color = '#ececec';
+                    e.target.style.boxShadow = '0 0 15px rgba(63, 81, 181, 0.3)';
+                  }}
+                  onMouseOut={(e) => {
+                    e.target.style.borderColor = 'rgba(63, 81, 181, 0.4)';
+                    e.target.style.color = '#b0b0b0';
+                    e.target.style.boxShadow = 'none';
+                  }}
+                >
+                  RETURN TO GALAXY
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
