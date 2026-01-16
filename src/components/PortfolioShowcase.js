@@ -17,39 +17,36 @@ export const PortfolioShowcase = () => {
 
   const projects = [
     {
-      title: "Speak Your Hands",
-      description: "Real-time gesture recognition desktop app using CNN (MobileNetV2) and Docker containerization.",
+      title: "Speak Your Hands – Real-Time ASL Recognition",
+      description: "Real-Time ASL Recognition Desktop Application",
       imgUrl: projImg1,
       githubUrl: "https://github.com/AssiaBendaou/Speak-Your-Hands",
       content: {
-        date: "March 2024",
-        tech: ["Python", "JavaFX", "Docker", "TensorFlow"],
-        dataset: "Real-time gesture recognition (A-Z) using Convolutional Neural Networks with MobileNetV2 architecture.",
-        impact: "Advanced computer vision solution enabling real-time sign language translation, demonstrating expertise in deep learning, Docker containerization, and desktop application development."
+        date: "May 2024",
+        tech: ["Java", "JavaFX", "Python", "TensorFlow", "Keras", "OpenCV", "NumPy", "Pandas", "Scikit-learn", "Matplotlib", "CSS"],
+        description: ["Speak Your Hands is a desktop application developed at ENSIASD to translate American Sign Language (ASL) gestures into the English alphabet in real time, empowering the deaf and mute community. The system recognizes 29 gestures using a MobileNetV2 model integrated with a JavaFX interface, achieving high accuracy without GPU requirements. It also features an interactive quiz to help users practice and improve ASL fluency."]
       }
     },
     {
-      title: "Public Transport Optimization",
-      description: "Passenger count prediction using LightGBM on 57,000+ observations with advanced feature engineering.",
-      imgUrl: projImg3,
-      githubUrl: "https://github.com/AssiaBendaou/Transport-Optimization",
-      content: {
-        date: "October 2025",
-        tech: ["Python", "Random Forest", "XGBoost", "LightGBM"],
-        dataset: "Passenger demand prediction using 57,916 observations with Exploratory Data Analysis and advanced feature engineering techniques.",
-        impact: "Sophisticated machine learning solution for urban transportation optimization, demonstrating advanced data science skills and real-world problem-solving capabilities."
-      }
-    },
-    {
-      title: "Recipe Web Platform",
-      description: "Full-stack web platform with secure JWT authentication and responsive UI design.",
+      title: "Cook & Share – Recipe Sharing Platform",
+      description: "Laravel-Based Recipe Sharing Web Application",
       imgUrl: projImg2,
       githubUrl: "https://github.com/AssiaBendaou/Recipe-Platform",
       content: {
         date: "May 2024",
-        tech: ["Laravel", "PHP", "MySQL", "JWT"],
-        dataset: "Full-stack web application with secure JSON Web Token authentication system and RESTful API architecture.",
-        impact: "Comprehensive web development project showcasing backend expertise, secure authentication protocols, and modern full-stack development practices."
+        tech: ["Laravel 10", "MySQL", "HTML5", "CSS3", "JavaScript", "Bootstrap 5", "jQuery", "Eloquent ORM", "Laravel Authentication"],
+        description: ["Cook & Share is a Laravel-based web platform connecting food lovers to create, share, and explore recipes. Users can upload images, search and filter by ingredients or difficulty, rate and review recipes, and save favorites. The responsive interface ensures seamless interaction across devices. A future AI assistant will suggest recipes and guide users with step-by-step cooking instructions."]
+      }
+    },
+    {
+      title: "Public Transport Optimization with Machine Learning",
+      description: "Passenger Demand Prediction & Resource Optimization",
+      imgUrl: projImg3,
+      githubUrl: "https://github.com/AssiaBendaou/Transport-Optimization",
+      content: {
+        date: "November 2025",
+        tech: ["Python", "Pandas", "NumPy", "Scikit-learn", "LightGBM", "XGBoost", "Matplotlib", "Seaborn"],
+        description: ["This project addresses inefficiencies in public transport by predicting passenger demand to reduce overcrowding and underutilization. Using a dataset from Transports Publics Genevois (57,916 observations), we performed cleaning, feature engineering, and exploratory analysis before testing multiple models. An optimized LightGBM model was deployed, with a prototype simulating real-time predictions to support data-driven planning."]
       }
     },
   ];
@@ -211,212 +208,67 @@ export const PortfolioShowcase = () => {
       {/* Mission Report Modal */}
       {selectedProject && (
         <div 
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(10, 10, 30, 0.9)',
-            backdropFilter: 'blur(20px)',
-            backgroundImage: `url(${bg1})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            zIndex: 9999,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center'
-          }}
+          className="mission-report-overlay"
           onClick={() => setSelectedProject(null)}
         >
-          <div 
-            style={{
-              background: 'rgba(15, 15, 30, 0.7)',
-              backdropFilter: 'blur(15px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
-              borderRadius: '40px',
-              padding: '50px',
-              maxWidth: '1100px',
-              width: '90%',
-              boxShadow: '0 0 30px rgba(63, 81, 181, 0.2)',
-              cursor: 'default',
-              position: 'relative',
-              margin: '0 auto'
-            }}
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div style={{ paddingTop: '120px' }}>
-              {/* Two Column Layout */}
-              <div style={{ display: 'flex', gap: '50px', alignItems: 'flex-start' }}>
-                {/* Left Column - Project Image */}
-                <div style={{ flex: '0 0 40%' }}>
-                  <div style={{
-                    position: 'relative',
-                    borderRadius: '15px',
-                    overflow: 'hidden',
-                    boxShadow: '0 0 20px rgba(63, 81, 181, 0.2)',
-                    border: '2px solid rgba(63, 81, 181, 0.3)'
-                  }}>
-                    <img 
-                      src={selectedProject.imgUrl} 
-                      alt={selectedProject.title}
-                      style={{
-                        width: '100%',
-                        height: '200px',
-                        objectFit: 'cover',
-                        display: 'block'
-                      }}
-                    />
-                  </div>
+          <div className="details-card" onClick={(e) => e.stopPropagation()}>
+            <div className="details-card-grid">
+              {/* Left Column - Project Image */}
+              <div className="details-image-container">
+                <div className="details-image-wrapper">
+                  <img 
+                    src={selectedProject.imgUrl} 
+                    alt={selectedProject.title}
+                    className="details-image"
+                  />
                 </div>
-                
-                {/* Right Column - Mission Log */}
-                <div style={{ flex: '1', color: '#fff' }}>
-                  <h2 style={{ 
-                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
-                    color: '#ececec', 
-                    fontSize: '2.6rem', 
-                    fontWeight: '700',
-                    marginBottom: '20px',
-                    lineHeight: '1.2',
-                    letterSpacing: '0.5px'
-                  }}>
-                    {selectedProject.title}
-                  </h2>
-                  <p style={{ 
-                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
-                    color: '#b0b0b0', 
-                    fontSize: '1rem', 
-                    marginBottom: '35px',
-                    fontStyle: 'italic'
-                  }}>
-                    {selectedProject.content.date}
-                  </p>
+              </div>
+              
+              {/* Right Column - Text Content */}
+              <div className="details-content">
+                <div className="details-content-inner">
+                  <div className="details-header">
+                    <h2 className="details-title">
+                      {selectedProject.title}
+                    </h2>
+                    <p className="details-date">
+                      {selectedProject.content.date}
+                    </p>
+                  </div>
                   
-                  <div style={{ marginBottom: '30px' }}>
-                    <h3 style={{ 
-                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
-                      color: '#b0b0b0', 
-                      fontSize: '1rem', 
-                      fontWeight: 'bold',
-                      marginBottom: '15px',
-                      letterSpacing: '1.5px',
-                      textTransform: 'uppercase',
-                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
-                    }}>
+                  <div className="details-section">
+                    <h3 className="details-section-title">
                       TECH STACK
                     </h3>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '30px' }}>
+                    <div className="tech-tags">
                       {selectedProject.content.tech.map((tech, index) => (
-                        <span 
-                          key={index} 
-                          style={{
-                            background: 'rgba(63, 81, 181, 0.1)',
-                            border: '1px solid rgba(63, 81, 181, 0.3)',
-                            color: '#ececec',
-                            padding: '6px 14px',
-                            borderRadius: '8px',
-                            fontSize: '0.85rem',
-                            fontWeight: '500',
-                            transition: 'all 0.3s ease',
-                            cursor: 'pointer',
-                            display: 'inline-block'
-                          }}
-                          onMouseOver={(e) => {
-                            e.target.style.background = 'rgba(63, 81, 181, 0.2)';
-                            e.target.style.borderColor = 'rgba(63, 81, 181, 0.5)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.target.style.background = 'rgba(63, 81, 181, 0.1)';
-                            e.target.style.borderColor = 'rgba(63, 81, 181, 0.3)';
-                          }}
-                        >
+                        <span key={index} className="tech-tag">
                           {tech}
                         </span>
                       ))}
                     </div>
                   </div>
                   
-                  <div style={{ marginBottom: '30px' }}>
-                    <h3 style={{ 
-                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
-                      color: '#b0b0b0', 
-                      fontSize: '1rem', 
-                      fontWeight: 'bold',
-                      marginBottom: '15px',
-                      letterSpacing: '1.5px',
-                      textTransform: 'uppercase',
-                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
-                    }}>
-                      DATASET
+                  <div className="details-section">
+                    <h3 className="details-section-title">
+                      PROJECT DETAILS
                     </h3>
-                    <p style={{ 
-                      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                      color: '#d1d1d1', 
-                      fontSize: '1rem', 
-                      lineHeight: '1.6'
-                    }}>
-                      {selectedProject.content.dataset}
-                    </p>
-                  </div>
-                  
-                  <div style={{ marginBottom: '40px' }}>
-                    <h3 style={{ 
-                      fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif',
-                      color: '#b0b0b0', 
-                      fontSize: '1rem', 
-                      fontWeight: 'bold',
-                      marginBottom: '15px',
-                      letterSpacing: '1.5px',
-                      textTransform: 'uppercase',
-                      fontStyle: 'italic',
-                      textShadow: '0 0 5px rgba(63, 81, 181, 0.3)'
-                    }}>
-                      IMPACT
-                    </h3>
-                    <p style={{ 
-                      fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif',
-                      color: '#d1d1d1', 
-                      fontSize: '1rem', 
-                      lineHeight: '1.6'
-                    }}>
-                      {selectedProject.content.impact}
+                    <p className="details-description">
+                      {selectedProject.content.description[0]}
                     </p>
                   </div>
                 </div>
               </div>
-              
-              <div style={{ textAlign: 'center', marginTop: '50px' }}>
-                <button 
-                  onClick={() => setSelectedProject(null)}
-                  style={{
-                    background: 'transparent',
-                    border: '1px solid rgba(63, 81, 181, 0.4)',
-                    color: '#b0b0b0',
-                    padding: '12px 30px',
-                    borderRadius: '50px',
-                    fontSize: '0.9rem',
-                    fontWeight: '600',
-                    cursor: 'pointer',
-                    transition: 'all 0.3s ease',
-                    letterSpacing: '1px',
-                    textTransform: 'uppercase',
-                    fontFamily: 'Montserrat, -apple-system, BlinkMacSystemFont, sans-serif'
-                  }}
-                  onMouseOver={(e) => {
-                    e.target.style.borderColor = 'rgba(63, 81, 181, 0.8)';
-                    e.target.style.color = '#ececec';
-                    e.target.style.boxShadow = '0 0 15px rgba(63, 81, 181, 0.3)';
-                  }}
-                  onMouseOut={(e) => {
-                    e.target.style.borderColor = 'rgba(63, 81, 181, 0.4)';
-                    e.target.style.color = '#b0b0b0';
-                    e.target.style.boxShadow = 'none';
-                  }}
-                >
-                  RETURN TO GALAXY
-                </button>
-              </div>
+            </div>
+            
+            {/* Action Button */}
+            <div className="details-action">
+              <button 
+                onClick={() => setSelectedProject(null)}
+                className="details-button"
+              >
+                RETURN TO GALAXY
+              </button>
             </div>
           </div>
         </div>
